@@ -1,0 +1,63 @@
+
+const switchToMemory = function() {
+    $('#game').addClass('disabled-game');
+    $('#memory').removeClass('disabled-game');
+
+    currentGame.disable();
+
+    timeLeft = memoryTime + currentGame.getScore();
+    playingMemory = true;
+}
+const switchToGame = function() {
+    $('#memory').addClass('disabled-game');
+    $('#game').removeClass('disabled-game');
+    memoryGame.resetGuesses();
+    timeLeft = gameTime;
+    playingMemory = false;
+}
+const update = function() {
+    timeLeft--;
+    playTime++;
+
+    if(timeLeft < 0){
+        if(playingMemory){
+            switchToGame();
+        }else{
+            switchToMemory();
+        }
+    }
+
+    if(playingMemory){
+        $('#time-memory').text(timeLeft + ' Seconds');
+    }else{
+        $('#time-game').text(timeLeft + ' Seconds');
+    }
+
+
+}
+let timer = null;
+let memoryGame = null;
+let currentGame = null;
+const init = function() {
+    $('#time-memory').text('0:00');
+    $('#time-game').text('0:00');
+
+    memoryGame = new Memory();
+    memoryGame.init();
+    currentGame = new OpenQuestions();
+    currentGame.init();
+
+    switchToMemory();
+    $('#time-memory').text(timeLeft + ' Seconds');
+    timer = setInterval(update, 1000);
+}
+
+const memoryTime = 1;
+const gameTime = 20;
+let playTime = 0;
+let timeLeft = 0;
+let playingMemory = true;
+
+init();
+
+//clearInterval(timer);
