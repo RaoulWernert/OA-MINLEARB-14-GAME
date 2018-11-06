@@ -18,3 +18,32 @@ body {
     padding: 20px;
     background: rgb(80, 125, 248);
 }
+
+#popup{
+    align-items: center;
+    display: none;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9996;
+    background: rgba(0, 0, 0, 0.5);
+}
+#container {
+    background: #6589F9;
+    width: 40%;
+    height: 400px;
+    opacity: 1;
+    padding: 30px 40px;
+    align-items: center;
+}
+#replay-button{
+    margin-left: 300px;
+    margin-top: 200px;
+    height: 50px;
+    background-color: #84c4ff;
+    text-align: center;
+    padding: 10px 20px;
+}

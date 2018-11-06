@@ -1,22 +1,19 @@
 class Memory {
     constructor(game) {
         this.game = game;
-        // this.cardTyps = [
-        //     'blueshell'
-        // ];
-        this.cardTyps = [
-            'blueshell',
-            'star',
-            'bobomb',
-            'mario',
-            'luigi',
-            'peach',
-            '1up',
-            'mushroom',
-            'thwomp',
-            'bulletbill',
-            'coin',
-            'goomba',
+        this.questions = [
+            {id: 1, question: '1 x 1', answer: '1'},
+            {id: 2, question: '1 x 2', answer: '2'},
+            {id: 3, question: '1 x 3', answer: '3'},
+            {id: 4, question: '1 x 4', answer: '4'},
+            {id: 5, question: '1 x 5', answer: '5'},
+            {id: 6, question: '1 x 6', answer: '6'},
+            {id: 7, question: '1 x 7', answer: '7'},
+            {id: 8, question: '1 x 8', answer: '8'},
+            {id: 9, question: '1 x 9', answer: '9'},
+            {id: 10, question: '1 x 10', answer: '10'},
+            {id: 11, question: '1 x 11', answer: '11'},
+            {id: 12, question: '1 x 12', answer: '12'},
         ];
         this.guessCount = 0;
     }
@@ -30,26 +27,34 @@ class Memory {
         this.grid.setAttribute('class', 'grid');
         $('#memory').append(this.grid);
 
-        let gameGrid = this.cardTyps.concat(this.cardTyps);
-        gameGrid.sort(() => 0.5 - Math.random());
-        gameGrid.forEach(type =>{
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.dataset.name = type;
 
-            const front = document.createElement('div');
-            front.classList.add('front');
-
-            const back = document.createElement('div');
-            back.classList.add('back');
-            back.style.backgroundImage = `url(${'img/memory/'+type+'.png'})`;
-
-            this.grid.appendChild(card);
-            card.appendChild(front);
-            card.appendChild(back);
+        let cardstext = Array();
+        this.questions.forEach(q =>{
+            cardstext.push({id: q.id, text: q.question});
+            cardstext.push({id: q.id, text: q.answer});
         });
 
+        cardstext.sort(() => 0.5 - Math.random());
+        cardstext.forEach(q => this.createCard(q));
+
         this.grid.addEventListener('click', this.onMouseClick.bind(this));
+    }
+
+    createCard(q){
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.name = q.id;
+
+        const front = document.createElement('div');
+        front.classList.add('front');
+
+        const back = document.createElement('div');
+        back.classList.add('back');
+        back.innerText = q.text;
+
+        this.grid.appendChild(card);
+        card.appendChild(front);
+        card.appendChild(back);
     }
 
     resetGuesses() {
@@ -60,7 +65,7 @@ class Memory {
             this.classList.remove('selected');
         });
         
-        if(this.matches >= this.cardTyps.length){
+        if(this.matches >= this.questions.length){
             this.game.dispatchEvent(new Event('memory_finished'));
         }
     }

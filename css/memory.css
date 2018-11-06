@@ -39,15 +39,17 @@
 
 .front {
   z-index: 2;
-  background: #FAB942 url('../img/memory/question.gif') no-repeat center center / contain;
+  background: #84c4ff url('../img/memory/question.gif') no-repeat center center / contain;
 }
 
 .back {
   transform: rotateY(180deg);
-  background-color: #6589F9;
+  background-color: #84c4ff;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  text-align: center;
+  line-height: 95px;
 }
 
 .selected {

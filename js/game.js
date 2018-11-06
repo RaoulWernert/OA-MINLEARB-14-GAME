@@ -39,8 +39,9 @@ const update = function() {
 }
 
 const onFinish = function(event) {
-    console.log('onfinish');
     clearInterval(timer);
+    $('#popup').css('display', 'flex');
+    $('#play-time').text(playTime + ' seconds');
 }
 
 let timer = null;
@@ -62,7 +63,7 @@ const init = function() {
     timer = setInterval(update, 1000);
 }
 
-const memoryTime = 100;
+const memoryTime = 30;
 const gameTime = 20;
 let playTime = 0;
 let timeLeft = 0;
