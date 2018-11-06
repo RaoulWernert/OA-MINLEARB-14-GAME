@@ -35,7 +35,7 @@ class OpenQuestions {
     }
 
     nextQuestion(){
-        this.index++;
+        this.index = Math.floor(Math.random() * this.dataOpenQuestions.length);
         let data = this.dataOpenQuestions[this.index];
         $('#questionContainer').text(data.question);
         $('#answerArea').val('');

@@ -1,4 +1,3 @@
-
 const switchToMemory = function() {
     $('#game').addClass('disabled-game');
     $('#memory').removeClass('disabled-game');
@@ -11,7 +10,10 @@ const switchToMemory = function() {
 const switchToGame = function() {
     $('#memory').addClass('disabled-game');
     $('#game').removeClass('disabled-game');
+
     memoryGame.resetGuesses();
+    currentGame.nextQuestion();
+
     timeLeft = gameTime;
     playingMemory = false;
 }
@@ -35,6 +37,12 @@ const update = function() {
 
 
 }
+
+const onFinish = function(event) {
+    console.log('onfinish');
+    clearInterval(timer);
+}
+
 let timer = null;
 let memoryGame = null;
 let currentGame = null;
@@ -42,8 +50,10 @@ const init = function() {
     $('#time-memory').text('0:00');
     $('#time-game').text('0:00');
 
-    memoryGame = new Memory();
+    memoryGame = new Memory(this);
     memoryGame.init();
+    this.addEventListener('memory_finished', onFinish.bind(this), false);
+
     currentGame = new OpenQuestions();
     currentGame.init();
 
@@ -52,12 +62,10 @@ const init = function() {
     timer = setInterval(update, 1000);
 }
 
-const memoryTime = 1;
+const memoryTime = 100;
 const gameTime = 20;
 let playTime = 0;
 let timeLeft = 0;
 let playingMemory = true;
 
 init();
-
-//clearInterval(timer);

@@ -1,5 +1,9 @@
 class Memory {
-    constructor() {
+    constructor(game) {
+        this.game = game;
+        // this.cardTyps = [
+        //     'blueshell'
+        // ];
         this.cardTyps = [
             'blueshell',
             'star',
@@ -57,7 +61,7 @@ class Memory {
         });
         
         if(this.matches >= this.cardTyps.length){
-            location.reload();
+            this.game.dispatchEvent(new Event('memory_finished'));
         }
     }
 
