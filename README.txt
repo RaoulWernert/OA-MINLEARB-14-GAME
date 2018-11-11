@@ -1,0 +1,2 @@
+De game draait op https://raoulwernert.github.io/OA-MINLEARB-14-GAME/
+Bij de openvragen onderin kan ook de Enter toets gebruikt worden om het antwoord op te geven, de knop eronder hoeft dus niet ingedrukt te worden
