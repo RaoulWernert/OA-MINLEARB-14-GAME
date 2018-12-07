@@ -1,0 +1,27 @@
+.mcCard{
+  height: 100px;
+  width: 400px;
+  background-color: aqua;
+  text-align: center;
+  line-height: 100px;
+  margin: 10px;
+  background: rgb(132, 196, 255);
+  cursor: pointer;
+}
+#mcGrid {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#mcQuestion{
+    padding: 20px;
+    margin: auto;
+    margin-top: 10px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    line-height: 10px;
+    background: rgb(132, 196, 255);
+}

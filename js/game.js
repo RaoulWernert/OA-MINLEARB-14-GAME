@@ -55,7 +55,8 @@ const init = function() {
     memoryGame.init();
     this.addEventListener('memory_finished', onFinish.bind(this), false);
 
-    currentGame = new OpenQuestions();
+    //currentGame = new OpenQuestions();
+    currentGame = new MultipleChoice();
     currentGame.init();
 
     switchToMemory();
@@ -63,8 +64,8 @@ const init = function() {
     timer = setInterval(update, 1000);
 }
 
-const memoryTime = 30;
-const gameTime = 20;
+const memoryTime = 1;
+const gameTime = 100;
 let playTime = 0;
 let timeLeft = 0;
 let playingMemory = true;
