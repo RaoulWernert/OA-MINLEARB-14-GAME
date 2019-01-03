@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="urf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Game</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/memory.css">
+    <link rel="stylesheet" href="css/games/openQuestions.css">
+    <link rel="stylesheet" href="css/games/multipleChoice.css">
+
+</head>
+
+<body>
+
+    <div class="timerText" id="time-memory"></div>
+    <div id="memory"></div>
+
+    <div class="timerText" id="time-game"></div>
+    <div id="game"></div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script src="js/memory.js"></script>
+    <script src="js/games/openQuestions.js"></script>
+    <script src="js/games/multipleChoice.js"></script>
+
+    <script src="js/game.js"></script>
+
+    <div id="popup">
+        <div id="container">
+            <div style="font-size:30px; margin-bottom: 20px">Finished</div>
+            <div style="font-size:20px">Time: <span id='play-time'></span></div>
+            <button id="replay-button" onclick="location.reload()">Replay</button>
+        </div>
+    </div>
+</body>
+
+</html>
