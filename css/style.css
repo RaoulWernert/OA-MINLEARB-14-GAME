@@ -19,7 +19,7 @@ body {
     background: rgb(80, 125, 248);
 }
 
-#popup{
+.popup{
     align-items: center;
     display: none;
     height: 100%;
@@ -74,6 +74,12 @@ body {
     display: none;
 }
 
-#oqContainer{
+#oqContainer, #mcContainer{
     display: none;
+}
+#import-textarea{
+    width: 100%;
+}
+#config-back-btn{
+    margin: 20px;
 }

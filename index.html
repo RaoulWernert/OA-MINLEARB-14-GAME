@@ -21,60 +21,90 @@
         <button class="menuButton" onclick="onConfigClicked()">Config</button>
     </div>
     <div id="config">
+        <button id="config-back-btn" onclick="onConfigBack()">Save and back</button>
         <div class="container">
             <label>Games</label>
             <hr>
-            <input type="checkbox" checked>Multiple choice
-            <input type="checkbox" checked>Open questions
+            <input type="checkbox" checked id="mc-checkbox">Multiple choice
+            <input type="checkbox" checked id="oq-checkbox">Open questions
+        </div>
+        <div class="container">
+            <label>Import</label>
+            <hr>
+            <textarea id="import-textarea"></textarea>
+            <button style="margin-top: 50px" onclick="onImportClicked()">Import</button>
         </div>
         <div class="container">
             <label>Questions</label>
             <hr>
+            <button onclick="toggleQuestionFields('mem')">Memory questions</button>
             <button onclick="toggleQuestionFields('mc')">Multiple choice</button>
             <button onclick="toggleQuestionFields('oq')">Open questions</button>
-                <div class="questions-container">
-                    <form id="questionsForm">
-                        <div id="mcContainer">
-                            <h4 style="padding: 10px; display: inline-block; width: 90%">Multiple choice</h4>
-                            <button onclick="addMC_Question()" type="button">Add question</button>
-                            <table style="width: 100%" id="MC-table">
-                                <tr>
-                                    <td style="width: 500px">Qustion</td>
-                                    <td>Correct answer</td>
-                                    <td>Other answer</td>
-                                    <td>Other answer</td>
-                                    <td>Other answer</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input style="width: 95%" id='MC-1-0'></td>
-                                    <td><input style="width: 95%" id='MC-1-1'></td>
-                                    <td><input style="width: 95%" id='MC-1-2'></td>
-                                    <td><input style="width: 95%" id='MC-1-3'></td>
-                                    <td><input style="width: 95%" id='MC-1-4'></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="oqContainer">
-                            <h4 style="padding: 10px; display: inline-block; width: 90%">Open questions</h4>
-                            <button onclick="addOQ_Question()" type="button">Add question</button>
-                            <table style="width: 100%" id="OQ-table">
-                                <tr>
-                                    <td>Qustion</td>
-                                    <td>Answer</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input style="width: 95%" id='OQ-q-1'></td>
-                                    <td><input style="width: 95%" id='OQ-q-2'></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </form>
-                    <button style="margin-top: 50px" onclick="onExportClicked()">Export</button>
-                </div>
+            <div class="questions-container">
+                <form id="questionsForm">
+                    <div id="memContainer">
+                        <h4 style="padding: 10px; display: inline-block; width: 90%">Memory questions</h4>
+                        <button onclick="addMem_Question()" type="button">Add question</button>
+                        <table style="width: 100%">
+                            <tr>
+                                <td>Qustion</td>
+                                <td>Answer</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <table style="width: 100%" id="MEM-table">
+                            <tr>
+                                <td><input style="width: 95%" id='MEM-q-1' value="1 * 1"></td>
+                                <td><input style="width: 95%" id='MEM-a-1' value="1"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="mcContainer">
+                        <h4 style="padding: 10px; display: inline-block; width: 90%">Multiple choice</h4>
+                        <button onclick="addMC_Question()" type="button">Add question</button>
+                        <table style="width: 100%">
+                            <tr>
+                                <td style="width: 300px">Qustion</td>
+                                <td>Correct answer</td>
+                                <td>Other answer</td>
+                                <td>Other answer</td>
+                                <td>Other answer</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <table style="width: 100%" id="MC-table">
+                            <tr>
+                                <td><input style="width: 95%" id='MC-1-0' value="1 * 1"></td>
+                                <td><input style="width: 95%" id='MC-1-1' value="1"></td>
+                                <td><input style="width: 95%" id='MC-1-2' value="2"></td>
+                                <td><input style="width: 95%" id='MC-1-3' value="3"></td>
+                                <td><input style="width: 95%" id='MC-1-4' value="4"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="oqContainer">
+                        <h4 style="padding: 10px; display: inline-block; width: 90%">Open questions</h4>
+                        <button onclick="addOQ_Question()" type="button">Add question</button>
+                        <table style="width: 100%">
+                            <tr>
+                                <td>Qustion</td>
+                                <td>Answer</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <table style="width: 100%" id="OQ-table">
+                            <tr>
+                                <td><input style="width: 95%" id='OQ-q-1' value="1 * 1"></td>
+                                <td><input style="width: 95%" id='OQ-a-1' value="1"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+                <button style="margin-top: 50px" onclick="onExportClicked()">Export</button>
+            </div>
         </div>
     </div>
 </body>

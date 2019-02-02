@@ -31,11 +31,19 @@
 
     <script src="js/game.js"></script>
 
-    <div id="popup">
+    <div id="popup-finish" class="popup">
         <div id="container">
             <div style="font-size:30px; margin-bottom: 20px">Finished</div>
             <div style="font-size:20px">Time: <span id='play-time'></span></div>
             <button id="replay-button" onclick="location.reload()">Replay</button>
+        </div>
+    </div>
+    <div id="popup-import" class="popup" style="display: flex">
+        <div id="container">
+            <div style="font-size:30px; margin-bottom: 20px">Import questions</div>
+            <textarea style="width: 100%; height: 230px; resize: none; overflow-y: auto" id="import-textarea">eyJtZW0iOlt7InEiOiIxICogMSIsImEiOiIxIn0seyJxIjoiMiAqIDEiLCJhIjoiMiJ9LHsicSI6IjMgKiAxIiwiYSI6IjMifSx7InEiOiI0ICogMSIsImEiOiI0In0seyJxIjoiNSAqIDEiLCJhIjoiNSJ9LHsicSI6IjYgKiAxIiwiYSI6IjYifSx7InEiOiI3ICogMSIsImEiOiI3In0seyJxIjoiOCAqIDEiLCJhIjoiOCJ9LHsicSI6IjkgKiAxIiwiYSI6IjkifSx7InEiOiIxMCAqIDEiLCJhIjoiMTAifSx7InEiOiIxMSAqIDEiLCJhIjoiMTEifSx7InEiOiIxMiAqIDEiLCJhIjoiMTIifV0sIm1jIjpbeyJxIjoiMSAqIDEiLCJhIjoiMSIsIncxIjoiMiIsIncyIjoiMyIsInczIjoiNCJ9XSwib3EiOlt7InEiOiIxICogMSIsImEiOiIxIn1dLCJtY0UiOnRydWUsIm9xRSI6dHJ1ZX0=
+            </textarea>
+            <button id="replay-button" onclick="onGameImport()" style="margin-top: 10px">Import</button>
         </div>
     </div>
 </body>

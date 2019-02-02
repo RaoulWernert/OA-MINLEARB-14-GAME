@@ -12,7 +12,13 @@ const switchToGame = function() {
     $('#game').removeClass('disabled-game');
 
     memoryGame.resetGuesses();
-    currentGame.nextQuestion();
+
+    let i = 1;
+    //let i = Math.floor(Math.random() * games.length);
+    currentGame = games[i];
+    currentGame.init();
+
+    setTimeout(() => currentGame.nextQuestion(), 100);
 
     timeLeft = gameTime;
     playingMemory = false;
@@ -34,37 +40,57 @@ const update = function() {
     }else{
         $('#time-game').text(timeLeft + ' Seconds');
     }
-
-
 }
 
 const onFinish = function(event) {
     clearInterval(timer);
-    $('#popup').css('display', 'flex');
+    $('#popup-finish').css('display', 'flex');
     $('#play-time').text(playTime + ' seconds');
 }
 
 let timer = null;
 let memoryGame = null;
 let currentGame = null;
+let gameData = {};
 const init = function() {
     $('#time-memory').text('0:00');
     $('#time-game').text('0:00');
-
-    memoryGame = new Memory(this);
-    memoryGame.init();
     this.addEventListener('memory_finished', onFinish.bind(this), false);
-
-    //currentGame = new OpenQuestions();
-    currentGame = new MultipleChoice();
-    currentGame.init();
-
-    switchToMemory();
-    $('#time-memory').text(timeLeft + ' Seconds');
-    timer = setInterval(update, 1000);
+    
+    $('#game').addClass('disabled-game');
+    $('#memory').removeClass('disabled-game');
 }
 
-const memoryTime = 1;
+function startGame(){
+    timeLeft = memoryTime;
+    memoryGame.init();
+
+    playingMemory = true;
+
+    $('#time-memory').text(timeLeft + ' Seconds');
+    timer = setInterval(update, 1000);
+
+    $('#popup-import').toggle(false);
+}
+
+let games = [];
+function onGameImport(){
+    let str = $('#import-textarea').val();
+    let data = JSON.parse(atob(str));
+    
+    memoryGame = new Memory(this, data['mem']);
+    
+    if(data['mcE']){
+        games.push(new MultipleChoice(data['mc']));
+    }
+    if(data['oqE']){
+        games.push(new OpenQuestions(data['oq']));
+    }
+
+    startGame();
+}
+
+const memoryTime = 2;
 const gameTime = 100;
 let playTime = 0;
 let timeLeft = 0;

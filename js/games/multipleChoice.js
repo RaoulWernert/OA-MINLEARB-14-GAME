@@ -1,8 +1,8 @@
 class MultipleChoice {
-    constructor() {
+    constructor(data) {
         this.data = [];
-        for(let i = 0; i < 10; i++){
-            this.data.push(new Question(i+' + 1', (i+1)+'', [(i)+'', (i+2)+'', (i+3)+'']));
+        for(let i = 0; i < data.length; i++){
+            this.data.push(new Question(data[i]));
         }
     }
 
@@ -61,10 +61,10 @@ class MultipleChoice {
 }
 
 class Question {
-    constructor(q, c, o) {
-        this.question = q;
-        this.correct = c;
-        this.other = o;
+    constructor(data) {
+        this.question = data['q'];
+        this.correct = data['a'];
+        this.other = [data['w1'], data['w2'], data['w3']];
     }
     isCorrect(answer){
         return this.correct === answer;

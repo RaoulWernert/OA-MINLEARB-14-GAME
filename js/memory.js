@@ -1,20 +1,10 @@
 class Memory {
-    constructor(game) {
+    constructor(game, data) {
         this.game = game;
-        this.questions = [
-            {id: 1, question: '1 x 1', answer: '1'},
-            {id: 2, question: '1 x 2', answer: '2'},
-            {id: 3, question: '1 x 3', answer: '3'},
-            {id: 4, question: '1 x 4', answer: '4'},
-            {id: 5, question: '1 x 5', answer: '5'},
-            {id: 6, question: '1 x 6', answer: '6'},
-            {id: 7, question: '1 x 7', answer: '7'},
-            {id: 8, question: '1 x 8', answer: '8'},
-            {id: 9, question: '1 x 9', answer: '9'},
-            {id: 10, question: '1 x 10', answer: '10'},
-            {id: 11, question: '1 x 11', answer: '11'},
-            {id: 12, question: '1 x 12', answer: '12'},
-        ];
+        this.questions = [];
+        for(let i = 0; i < data.length; i++){
+            this.questions.push({id: i, question: data[i].q, answer: data[i].a});
+        }
         this.guessCount = 0;
     }
 
@@ -26,7 +16,6 @@ class Memory {
 
         this.grid.setAttribute('class', 'grid');
         $('#memory').append(this.grid);
-
 
         let cardstext = Array();
         this.questions.forEach(q =>{
