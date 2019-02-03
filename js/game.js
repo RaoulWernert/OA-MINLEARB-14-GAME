@@ -47,10 +47,6 @@ const onFinish = function(event) {
     $('#play-time').text(playTime + ' seconds');
 }
 
-let timer = null;
-let memoryGame = null;
-let currentGame = null;
-let gameData = {};
 const init = function() {
     $('#time-memory').text('0:00');
     $('#time-game').text('0:00');
@@ -72,7 +68,6 @@ function startGame(){
     $('#popup-import').toggle(false);
 }
 
-let games = [];
 function onGameImport(){
     let str = $('#import-textarea').val();
     let data = JSON.parse(atob(str));
@@ -90,9 +85,14 @@ function onGameImport(){
 }
 
 const memoryTime = 30;
-const gameTime = 10;
+const gameTime = 20;
 let playTime = 0;
 let timeLeft = 0;
 let playingMemory = true;
+let timer = null;
+let memoryGame = null;
+let currentGame = null;
+let gameData = {};
+let games = [];
 
 init();

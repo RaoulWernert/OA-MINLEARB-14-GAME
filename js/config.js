@@ -71,6 +71,13 @@ const addOQ_Question = function(){
     $('#OQ-table').append(tr);
 }
 
+const OQ_RemoveQuestion = function(index){
+    $('#OQ-question'+index).remove();
+    if(index == OQ_numQuestions){
+        OQ_numQuestions--;
+    }
+}
+
 function onExportClicked(){
     let memQuestions = [];
     let mcQuestions = [];
