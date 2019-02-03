@@ -89,7 +89,7 @@ function onGameImport(){
     startGame();
 }
 
-const memoryTime = 1;
+const memoryTime = 30;
 const gameTime = 10;
 let playTime = 0;
 let timeLeft = 0;
