@@ -13,8 +13,7 @@ const switchToGame = function() {
 
     memoryGame.resetGuesses();
 
-    let i = 1;
-    //let i = Math.floor(Math.random() * games.length);
+    let i = Math.floor(Math.random() * games.length);
     currentGame = games[i];
     currentGame.init();
 
