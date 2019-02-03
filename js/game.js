@@ -17,7 +17,7 @@ const switchToGame = function() {
     currentGame = games[i];
     currentGame.init();
 
-    setTimeout(() => currentGame.nextQuestion(), 100);
+    setTimeout(() => currentGame.nextQuestion(), 300);
 
     timeLeft = gameTime;
     playingMemory = false;
@@ -89,7 +89,7 @@ function onGameImport(){
     startGame();
 }
 
-const memoryTime = 30;
+const memoryTime = 1;
 const gameTime = 10;
 let playTime = 0;
 let timeLeft = 0;
