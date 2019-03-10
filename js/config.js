@@ -92,11 +92,11 @@ function onExportClicked(){
 
     for(let i = 1; i <= MEM_numQuestions; i++){
         let o = {};
-        if(!$('#MEM-q-'+i).val() || $('#MEM-q-'+i).val().length === 0){
-            continue;
-        }
         o.q = $('#MEM-q-'+i).val();
         o.a = $('#MEM-a-'+i).val();
+        if(!o.q || o.q.length === 0 || !o.a || o.a.length === 0){
+            continue;
+        }
         memQuestions.push(o);
     }
     for(let i = 1; i <= MC_numQuestions; i++){
@@ -162,7 +162,7 @@ function copyStringToClipboard(str) {
     MC_numQuestions = 0;
     OQ_numQuestions = 0;
     
-    for(let i = 1; i <= oq.length; i++){
+    for(let i = 1; i <= mem.length; i++){
         addMEM_Question();
         let o = mem[i-1];
         $('#MEM-q-'+i).val(o.q);
